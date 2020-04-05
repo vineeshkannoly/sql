@@ -1,0 +1,14 @@
+SELECT
+                            CHILD_ID FROM
+                            table A                        
+                        WHERE
+                            a.child_depth_num IN (
+                                SELECT MAX(child_depth_num) FROM table 
+                            )
+                        START WITH
+                                    
+                            CHILD_ID IN (                       
+--pass the node/leaf id here
+)
+                        CONNECT BY NOCYCLE
+                            PRIOR CHILD_ID = PARENT_ID
